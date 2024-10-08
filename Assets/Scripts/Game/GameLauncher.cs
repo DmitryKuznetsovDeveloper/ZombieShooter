@@ -1,10 +1,10 @@
 using UnityEngine.SceneManagement;
 
-namespace GamePlay
+namespace Game
 {
     public sealed class GameLauncher
     {
-        private const string LevelOne = "Level01";
+        private const string LevelOne = "LevelOne";
         public void LaunchGame() => 
             SceneManager.LoadScene(LevelOne);
     }

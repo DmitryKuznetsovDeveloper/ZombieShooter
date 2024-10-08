@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 3612999739597912503}
   - component: {fileID: 6375372040609178284}
   - component: {fileID: 1322143321451197413}
+  - component: {fileID: 5778292724327676920}
   m_Layer: 5
   m_Name: DefaultButton
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &1322143321451197413
 MonoBehaviour:
@@ -171,7 +172,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -196,6 +197,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5778292724327676920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718298153007202764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07e2c998ff69f8458baa01dff646ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1322143321451197413}
+  _shadow: {fileID: 7012719462270583261}
+  _shadowColor: {r: 0, g: 1, b: 0.1254902, a: 0.1882353}
+  _buttonLabel: {fileID: 755400690619217741}
+  _labelColor: {r: 0, g: 1, b: 0.1254902, a: 1}
+  _tweenParamsHover:
+    Duration: 0.4
+    Delay: 0
+    EaseOut: 9
+    EaseIn: 8
+  _root: {fileID: 5055181958921224655}
+  _scaleFactor: 1.1
+  _tweenParamsClick:
+    Duration: 0.2
+    Delay: 0
+    EaseOut: 3
 --- !u!1 &2258278948435109689
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: text
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 570d3926ae077044fb3671122c8283cf, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 502568c7114a1f84b852135264f5f009, type: 2}

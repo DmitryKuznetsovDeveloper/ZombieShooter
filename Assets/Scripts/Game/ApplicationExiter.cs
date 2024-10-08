@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace GamePlay
+namespace Game
 {
     public sealed class ApplicationExiter
     {
