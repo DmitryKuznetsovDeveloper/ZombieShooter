@@ -2,8 +2,9 @@ using System;
 using Game;
 using UI.UIExtension;
 using UI.View;
+using UnityEngine;
 using Zenject;
-public sealed class MainMenuMediator : IInitializable,IDisposable
+public sealed class MainMenuMediator : IInitializable
 {
     private readonly MainMenuView _mainMenuView;
     private readonly ApplicationExiter _applicationExit;
@@ -18,6 +19,8 @@ public sealed class MainMenuMediator : IInitializable,IDisposable
 
      void IInitializable.Initialize()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         _mainMenuView.StartButton.Button.AnimateOnHover(_mainMenuView.StartButton.SequenceHover,_mainMenuView.StartButton.TweenParamsHover.EaseOut,_mainMenuView.StartButton.TweenParamsHover.EaseIn);
         _mainMenuView.StartButton.Button.AnimateOnClick(_mainMenuView.StartButton.SequenceClick,_mainMenuView.StartButton.TweenParamsHover.EaseOut,_gameLauncher.LaunchGame);
         _mainMenuView.StartButton.Button.AnimateOnClick(_mainMenuView.StartButton.SequenceClick,_mainMenuView.StartButton.TweenParamsHover.EaseOut,_gameLauncher.LaunchGame);
@@ -26,11 +29,5 @@ public sealed class MainMenuMediator : IInitializable,IDisposable
        
         _mainMenuView.ExitButton.Button.AnimateOnHover(_mainMenuView.ExitButton.SequenceHover,_mainMenuView.ExitButton.TweenParamsHover.EaseOut,_mainMenuView.ExitButton.TweenParamsHover.EaseIn);
         _mainMenuView.ExitButton.Button.AnimateOnClick(_mainMenuView.ExitButton.SequenceClick,_mainMenuView.ExitButton.TweenParamsHover.EaseOut,_applicationExit.ExitApp);
-    }
-    public void Dispose()
-    {
-        _mainMenuView.StartButton.Button.UnsubscribeAll();
-        _mainMenuView.SettingButton.Button.UnsubscribeAll();
-        _mainMenuView.ExitButton.Button.UnsubscribeAll();
     }
 }

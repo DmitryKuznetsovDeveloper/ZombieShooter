@@ -61,7 +61,7 @@ namespace Game.Weapon
         }
         public void Shoot()
         {
-            if (Time.time >= _nextTimeToFire && !_isReload)
+            if (Time.time >= _nextTimeToFire && !_isReload && _currentClip > 0)
             {
                 ShootProcess();
                 _nextTimeToFire = Time.time + 1f / _weaponConfig.FireRate; // Обновляем время следующего выстрела

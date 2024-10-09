@@ -1,6 +1,7 @@
 using Code.Tween;
 using DG.Tweening;
 using TMPro;
+using UI.UIExtension;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,7 @@ namespace UI.AnimationUI
         {
             _sequenceHover.Kill();
             _sequenceClick.Kill();
+            _button.UnsubscribeAll();
         }
     }
 }

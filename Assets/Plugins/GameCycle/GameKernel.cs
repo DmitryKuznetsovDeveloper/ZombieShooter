@@ -81,6 +81,8 @@ namespace Plugins.GameCycle
 
         void IGameStartListener.OnStartGame()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             foreach (var it in this._listeners)
             {
                 if (it is IGameStartListener listener)
@@ -92,6 +94,8 @@ namespace Plugins.GameCycle
 
         void IGamePauseListener.OnPauseGame()
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             foreach (var it in this._listeners)
             {
                 if (it is IGamePauseListener listener)
@@ -103,6 +107,8 @@ namespace Plugins.GameCycle
 
         void IGameResumeListener.OnResumeGame()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             foreach (var it in this._listeners)
             {
                 if (it is IGameResumeListener listener)
