@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game.Weapon
 {
     public sealed class WeaponSelector
     {
+        public event Action<BaseWeapon> OnChangeWeapon; 
         public BaseWeapon CurrentBaseWeapon => _currentBaseWeapon;
         private int _currentWeaponIndex;
         private BaseWeapon _currentBaseWeapon;
@@ -48,11 +50,12 @@ namespace Game.Weapon
         
         private void SelectWeapon()
         {
-            if (!_currentBaseWeapon.Equals(null))
+            if (_currentBaseWeapon != null)
                 _currentBaseWeapon.gameObject.SetActive(false);
                 
             _currentBaseWeapon = _weapons[_currentWeaponIndex];
             _currentBaseWeapon.gameObject.SetActive(true);
+            OnChangeWeapon?.Invoke(_currentBaseWeapon);
         }
     }
 }

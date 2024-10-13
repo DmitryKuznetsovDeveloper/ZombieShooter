@@ -7,11 +7,13 @@ namespace Game.Weapon
 {
     public sealed class WeaponController : IInitializable, IGameTickable
     {
+        public BaseWeapon CurrentWeapon => _currentWeapon;
         private readonly BaseWeapon[] _weapons;
         private readonly WeaponSelector _weaponSelector;
         private readonly ReloadUserInputSystem _reloadUserInputSystem;
         private readonly ShootUserInputSystem _shootUserInputSystem;
         private readonly MouseUserInputSystem _mouseUserInputSystem;
+        private BaseWeapon _currentWeapon;
         
         public WeaponController(
             BaseWeapon[] weapons,
@@ -30,6 +32,7 @@ namespace Game.Weapon
         {
             _weaponSelector.Init(_weapons);
             _weaponSelector.GetWeapon();
+            _currentWeapon = _weaponSelector.CurrentBaseWeapon;
         }
         async void IGameTickable.Tick(float time)
         {

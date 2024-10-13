@@ -17,7 +17,7 @@ public sealed class WeaponConfig : ScriptableObject
     
     [VerticalGroup("General")] // Оружие типа
     [LabelText("Weapon Rich text ammo")]
-    [SerializeField] private string _richTexttAmmo; // Тип оружия
+    [SerializeField] private string _richTextAmmo; // Тип оружия
 
     [TabGroup("Ammo & Performance", "Ammo")] // Вкладка "Боеприпасы"
     [LabelText("Total Ammo")]
@@ -86,6 +86,7 @@ public sealed class WeaponConfig : ScriptableObject
 
     // Публичные геттеры
     public WeaponType WeaponType => _weaponType;
+    public String RichTextAmmo => _richTextAmmo;
     public Sprite WeaponIcon => _weaponIcon;
     public int TotalAmmo => _totalAmmo;
     public int MagazineCapacity => _magazineCapacity;

@@ -21,11 +21,11 @@ namespace Game.Components
             else OnTakeDamage?.Invoke(damage);
             OnChangeHealth?.Invoke(_health);
         }
-
+        
         public void RestoreHitPoints(int healthPoints)
         {
-            _health = Mathf.Min(_health + healthPoints, _maxHitPoints);
-            OnChangeHealth?.Invoke(healthPoints);
+            _health = healthPoints > 0 ? Mathf.Min(_health + healthPoints, _maxHitPoints) : _health;
+            OnChangeHealth?.Invoke(healthPoints);   
         }
     }
 }

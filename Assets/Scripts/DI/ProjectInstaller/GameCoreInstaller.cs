@@ -1,5 +1,6 @@
 using Controllers;
 using Game;
+using Game.Weapon;
 using Plugins.GameCycle;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
@@ -23,6 +24,8 @@ namespace DI.ProjectInstaller
             Container.BindInterfacesAndSelfTo<GameController>().AsCached();
             Container.BindInterfacesAndSelfTo<ApplicationExiter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<GameLauncher>().AsSingle().NonLazy();
+            
+            Container.Bind<WeaponSelector>().AsSingle().NonLazy();
         }
     }
 }

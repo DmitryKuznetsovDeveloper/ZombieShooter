@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public sealed class WeaponInfoView : MonoBehaviour
+public sealed class WeaponTemplateView : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _mainCanvasGroup;
     [SerializeField] private Image _bgMain;
@@ -21,15 +21,22 @@ public sealed class WeaponInfoView : MonoBehaviour
     private Sequence _sequenceNormal;
     private Sequence _sequenceSelected;
 
-    public void ShowNormal() => _sequenceNormal.OnComplete(PauseNormal).Restart();
+    public void ShowNormal()
+    {
+        _sequenceSelected.OnComplete(PauseSelected).Complete();
+        _sequenceNormal.OnComplete(PauseNormal).Restart();
+    }
 
-    public void ShowSelected() => _sequenceSelected.OnComplete(PauseSelected).Restart();
+    public void ShowSelected()
+    {
+        _sequenceSelected.OnComplete(PauseSelected).Restart();
+    }
 
     public void SetWeaponAmmoLabel(int clip, int totalAmmo, string richText) => _weaponAmmoLabel.text = $"{clip} {richText} {totalAmmo}";
 
     public void SetSpriteWeapon(Sprite sprite) => _imageWeapon.sprite = sprite;
 
-    private void Awake()
+    public void InitSequence()
     {
         _sequenceSelected = CreateSequenceState(_selectedState);
         _sequenceNormal = CreateSequenceState(_normalState);

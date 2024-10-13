@@ -28,14 +28,13 @@ public sealed class CharacterInstaller : MonoInstaller
         
         //Components
         Container.Bind<WeaponBaseAnimations>().AsSingle().NonLazy();
-        Container.Bind<WeaponSelector>().AsSingle().NonLazy();
         Container.Bind<CharacterController>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<BaseWeapon[]>().FromInstance(_weapons).AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<CharacterMovement>().AsSingle().WithArguments(transform,_bodyTransform).NonLazy();
         
         //Controllers
         Container.BindInterfacesTo<CharacterMovementController>().AsSingle().NonLazy();
-        Container.BindInterfacesTo<WeaponController>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<WeaponController>().AsSingle().NonLazy();
 
     }
 }

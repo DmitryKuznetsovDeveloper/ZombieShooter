@@ -14,10 +14,12 @@ namespace Game.Weapon
         public bool IsReload => _isReload;
         public int CurrentClip => _currentClip;
         public int CurrentTotalAmmo => _totalAmmo;
+        public WeaponType WeaponType => _weaponType;
         public WeaponConfig WeaponConfig => _weaponConfig;
         public CinemachineVirtualCamera BaseCamera => _baseCamera;
         
         [ReadOnly] protected WeaponType _weaponType;
+        [SerializeField] private Transform _barrelTransform;
         [SerializeField] protected WeaponConfig _weaponConfig;
         [SerializeField] protected Transform _muzzleFlashContainer;
         [SerializeField] protected Transform _bloodContainer;
@@ -31,7 +33,6 @@ namespace Game.Weapon
         protected int _currentClip;
         protected int _totalAmmo;
         
-        private Camera _fpsCamera;
         private WeaponBaseAnimations _weaponBaseAnimations;
         private ObjectPool<ParticleSystem> _muzzleFlashPool; // Пул для вспышек выстрела
         private ObjectPool<ParticleSystem> _bloodEffectPool; // Пул для эффектов крови
@@ -43,11 +44,7 @@ namespace Game.Weapon
         private CancellationTokenSource _cancellationTokenSource;
         
         [Inject]
-        public void Construct(Camera fpsCamera, WeaponBaseAnimations weaponBaseAnimations)
-        {
-            _fpsCamera = fpsCamera;
-            _weaponBaseAnimations = weaponBaseAnimations;
-        }
+        public void Construct( WeaponBaseAnimations weaponBaseAnimations) => _weaponBaseAnimations = weaponBaseAnimations;
 
         protected virtual void Awake() => InitializeWeapon();
         protected virtual void InitializeWeapon()
@@ -87,14 +84,13 @@ namespace Game.Weapon
         {
             _weaponBaseAnimations.ShowShoot(_animator);
             _currentClip--;
-
-            var width = Screen.width / 2;
-            var height = Screen.height / 2;
-            var ray = _fpsCamera.ScreenPointToRay(new Vector3(width, height, 0));
+            
+            Vector3 rayOrigin = _barrelTransform.position;
+            Vector3 rayDirection = _barrelTransform.forward; 
 
             PlayEffectParent(_muzzleFlashPool, _muzzleFlashContainer);
             
-            if (Physics.Raycast(ray, out var hit, _weaponConfig.Range, ~_characterLayerMask))
+            if (Physics.Raycast(rayOrigin, rayDirection,out var hit, _weaponConfig.Range, ~_characterLayerMask))
                 HandleHit(hit);
             
             PlayEffectParent(_shellEffectPool, _shellContainer);
@@ -162,5 +158,17 @@ namespace Game.Weapon
         protected void OnEnable() => _cancellationTokenSource = new CancellationTokenSource();
         protected void OnDisable() => _cancellationTokenSource.Cancel();
         protected void OnDestroy() => _cancellationTokenSource.Cancel();
+        private void OnDrawGizmos()
+        {
+            // Если у вас есть ссылка на ствол оружия
+            if (_barrelTransform != null)
+            {
+                // Устанавливаем цвет Gizmos
+                Gizmos.color = Color.red; // Цвет луча (красный)
+
+                // Рисуем линию от ствола до направления луча
+                Gizmos.DrawRay(_barrelTransform.position, _barrelTransform.forward * _weaponConfig.Range);
+            }
+        }
     }
 }

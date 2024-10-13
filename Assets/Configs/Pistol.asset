@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponIcon: {fileID: 21300000, guid: 832c5d72dc016ae4c9fe86eacfcc0c00, type: 3}
   _weaponType: 0
-  _richTexttAmmo: <sprite name=icn_ammo_pistol>
+  _richTextAmmo: <sprite name=icn_ammo_pistol>
   _totalAmmo: 75
   _magazineCapacity: 15
   _damage: 25
