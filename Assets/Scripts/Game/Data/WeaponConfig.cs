@@ -13,7 +13,11 @@ public sealed class WeaponConfig : ScriptableObject
 
     [VerticalGroup("General")] // Оружие типа
     [LabelText("Weapon Type")]
-    [SerializeField] private WeaponType _weaponType; // Тип оружия
+    [SerializeField] private WeaponType _weaponType; 
+    
+    [VerticalGroup("General")] // Оружие типа
+    [LabelText("Weapon Rich text ammo")]
+    [SerializeField] private string _richTexttAmmo; // Тип оружия
 
     [TabGroup("Ammo & Performance", "Ammo")] // Вкладка "Боеприпасы"
     [LabelText("Total Ammo")]

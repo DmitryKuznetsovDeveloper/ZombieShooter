@@ -10,6 +10,9 @@ namespace Game.Components
         
         [SerializeField, Min(0)] private int _maxHitPoints = 100;
         [SerializeField, Min(0)] private int _health = 50;
+
+        public int MaxHitPoints => _maxHitPoints;
+        public int CurrentHealthPoints => _health;
         
         public void TakeDamage(int damage)
         {

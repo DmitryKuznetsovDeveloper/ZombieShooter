@@ -5,10 +5,16 @@ using UI.UIExtension;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.AnimationUI
+namespace UI.View
 {
     public sealed class ButtonDefaultView : MonoBehaviour
     {
+        public Sequence SequenceHover => _sequenceHover;
+        public TweenParamsOutIn TweenParamsHover => _tweenParamsHover;
+        public Sequence SequenceClick => _sequenceClick;
+        public TweenParamsOut TweenParamsClick => _tweenParamsClick;
+        public Button Button => _button;
+        
         [SerializeField] private Button _button;
         [Header("Hover Settings")]
         [SerializeField] private Image _shadow;
@@ -24,25 +30,21 @@ namespace UI.AnimationUI
 
         private Sequence _sequenceHover;
         private Sequence _sequenceClick;
-        
-        public Sequence SequenceHover => _sequenceHover;
-        public TweenParamsOutIn TweenParamsHover => _tweenParamsHover;
-        public Sequence SequenceClick => _sequenceClick;
-        public TweenParamsOut TweenParamsClick => _tweenParamsClick;
-        public Button Button => _button;
         private void Awake()
         {
             _sequenceHover = DOTween.Sequence();
-            _sequenceHover.Join(_shadow.DOColor(_shadowColor, _tweenParamsHover.Duration));
+            _sequenceHover.Append(_shadow.DOColor(_shadowColor, _tweenParamsHover.Duration));
             _sequenceHover.Join(_buttonLabel.DOColor(_labelColor, _tweenParamsHover.Duration));
             _sequenceHover
+                .SetRecyclable(true)
                 .SetAutoKill(false)
                 .SetUpdate(true)
                 .Pause();
 
             _sequenceClick = DOTween.Sequence();
-            _sequenceClick.Join(_root.DOScale(_scaleFactor, _tweenParamsClick.Duration).SetLoops(2,LoopType.Yoyo).From(1));
+            _sequenceClick.Append(_root.DOScale(_scaleFactor, _tweenParamsClick.Duration).SetLoops(2,LoopType.Yoyo).From(1));
             _sequenceClick
+                .SetRecyclable(true)
                 .SetAutoKill(false)
                 .SetUpdate(true)
                 .Pause();

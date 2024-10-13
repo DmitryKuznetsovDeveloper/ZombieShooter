@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 1322143321451197413}
   _shadow: {fileID: 7012719462270583261}
-  _shadowColor: {r: 0, g: 1, b: 0.1254902, a: 0.1882353}
+  _shadowColor: {r: 0.4627451, g: 0.654902, b: 0.5254902, a: 0.5019608}
   _buttonLabel: {fileID: 755400690619217741}
   _labelColor: {r: 0, g: 1, b: 0.1254902, a: 1}
   _tweenParamsHover:

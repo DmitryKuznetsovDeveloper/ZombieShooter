@@ -12,6 +12,9 @@ namespace Game.Weapon
     public abstract class BaseWeapon : MonoBehaviour
     {
         public bool IsReload => _isReload;
+        public int CurrentClip => _currentClip;
+        public int CurrentTotalAmmo => _totalAmmo;
+        public WeaponConfig WeaponConfig => _weaponConfig;
         public CinemachineVirtualCamera BaseCamera => _baseCamera;
         
         [ReadOnly] protected WeaponType _weaponType;

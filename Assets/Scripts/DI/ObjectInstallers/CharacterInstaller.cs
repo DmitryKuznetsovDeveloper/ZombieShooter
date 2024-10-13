@@ -13,7 +13,6 @@ public sealed class CharacterInstaller : MonoInstaller
     [SerializeField] private BaseWeapon[] _weapons;
     public override void InstallBindings()
     {
-        
         //Configs
         Container.Bind<CharacterMovementConfig>().FromInstance(_characterMovementConfig).AsSingle().NonLazy();
         

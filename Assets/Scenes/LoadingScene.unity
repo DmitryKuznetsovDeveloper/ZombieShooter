@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 60315426}
   - component: {fileID: 60315425}
+  - component: {fileID: 60315427}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -154,7 +155,7 @@ MonoBehaviour:
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: ee977cabc95bb0744bcbc7109e0b27aa, type: 2}
   _monoInstallers:
-  - {fileID: 0}
+  - {fileID: 1183945381}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -172,7 +173,7 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
-  _kernel: {fileID: 0}
+  _kernel: {fileID: 60315427}
 --- !u!4 &60315426
 Transform:
   m_ObjectHideFlags: 0
@@ -188,6 +189,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60315427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60315423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e6dd2b6489471b8e6fc800a78877b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &291889216
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +373,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 255
 --- !u!114 &561458750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,11 +458,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LoadScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 2673925974243601471, guid: 155757dfa16a59c4fb3bc396968ca408,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2673925974243601471, guid: 155757dfa16a59c4fb3bc396968ca408,
         type: 3}
@@ -571,6 +579,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 155757dfa16a59c4fb3bc396968ca408, type: 3}
+--- !u!114 &1183945381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1377633003935629490, guid: 155757dfa16a59c4fb3bc396968ca408,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183945379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf64fd057fa9414d8e27a1a5772776ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1388602362
 GameObject:
   m_ObjectHideFlags: 0
