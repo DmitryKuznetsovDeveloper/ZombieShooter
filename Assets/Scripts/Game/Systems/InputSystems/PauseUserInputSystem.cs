@@ -10,12 +10,11 @@ namespace Game.Systems.InputSystems
         
         void IInitializable.Initialize()
         {
-            _pauseAction = new InputAction("pause", binding: "<Keyboard>/escape");
+            _pauseAction = new InputAction("pause", binding: "<Keyboard>/Escape");
             _pauseAction.Enable();
         }
 
-        void ITickable.Tick() => IsPauseInput = _pauseAction.IsPressed();
-
+        void ITickable.Tick() => IsPauseInput = _pauseAction.WasPressedThisFrame();
         void IDisposable.Dispose() => _pauseAction?.Dispose();
     }
 }

@@ -29,7 +29,6 @@ namespace UI.MediatorUI
             _weaponViews = new List<WeaponTemplateView>();
             _baseWeapons = _characterInstaller.GetComponentsInChildren<BaseWeapon>(true);
             _weaponsPool = new ObjectPool<WeaponTemplateView>(_weaponView.WeaponViewPrefab, _baseWeapons.Length, _weaponView.Container);
-            Debug.Log(_baseWeapons.Length);
             SpawnWeapon(_baseWeapons, _weaponsPool);
             _weaponSelector.OnChangeWeapon += PlayAnimationForWeapon;
         }

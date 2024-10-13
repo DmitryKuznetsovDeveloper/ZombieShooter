@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 namespace Game.Components
 {
@@ -14,6 +15,7 @@ namespace Game.Components
         public int MaxHitPoints => _maxHitPoints;
         public int CurrentHealthPoints => _health;
         
+        [Button]
         public void TakeDamage(int damage)
         {
             _health = Math.Max(0, _health - damage);

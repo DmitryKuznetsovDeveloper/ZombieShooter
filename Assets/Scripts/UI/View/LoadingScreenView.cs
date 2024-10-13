@@ -49,14 +49,14 @@ namespace UI.View
                 .Pause();
         }
 
-        private void PauseSliderAnimation() => _sequenceLoadingSlider.Pause();
-        private void ShowLoadingScreen() => _sequenceLoadingSlider.Restart();
+        private void PauseSliderAnimation() => _sequenceLoadingSlider?.Pause();
+        private void ShowLoadingScreen() => _sequenceLoadingSlider?.Restart();
         private void OnEnable() => ShowLoadingScreen();
         private void OnDisable()
         {
-            _sequenceLoadingSlider.OnComplete(PauseSliderAnimation).Rewind();
+            _sequenceLoadingSlider.OnComplete(PauseSliderAnimation)?.Rewind();
             _startGameButton.onClick.RemoveAllListeners();
         }
-        private void OnDestroy() => _sequenceLoadingSlider.Kill();
+        private void OnDestroy() => _sequenceLoadingSlider?.Kill();
     }
 }

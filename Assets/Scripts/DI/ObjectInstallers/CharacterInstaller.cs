@@ -23,7 +23,6 @@ public sealed class CharacterInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<JumpUserInputSystem>().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<ReloadUserInputSystem>().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<ShootUserInputSystem>().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<PauseUserInputSystem>().AsSingle().NonLazy();
         
         
         //Components

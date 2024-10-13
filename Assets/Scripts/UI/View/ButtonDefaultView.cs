@@ -52,14 +52,13 @@ namespace UI.View
         
         private void OnDisable()
         {
-            _sequenceHover.Pause();
-            _sequenceClick.Pause();
+            _sequenceHover?.Pause();
+            _sequenceClick?.Pause();
         }
 
         private void OnDestroy()
         {
-            _sequenceHover.Kill();
-            _sequenceClick.Kill();
+            _button.UnsubscribeSequence(_sequenceHover,_sequenceClick);
             _button.UnsubscribeAll();
         }
     }

@@ -1,4 +1,3 @@
-using Controllers;
 using Game;
 using Game.Weapon;
 using Plugins.GameCycle;
@@ -21,10 +20,8 @@ namespace DI.ProjectInstaller
         {
             Container.Bind<GameManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<Camera>().FromComponentsInHierarchy().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<GameController>().AsCached();
             Container.BindInterfacesAndSelfTo<ApplicationExiter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<GameLauncher>().AsSingle().NonLazy();
-            
             Container.Bind<WeaponSelector>().AsSingle().NonLazy();
         }
     }

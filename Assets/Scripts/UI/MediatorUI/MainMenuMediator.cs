@@ -1,38 +1,43 @@
+using System;
 using Game;
+using Plugins.GameCycle;
 using UI.UIExtension;
 using UI.View;
 using UnityEngine;
 using Zenject;
+
 public sealed class MainMenuMediator : IInitializable
 {
     private readonly MainMenuView _mainMenuView;
-    private readonly SettingsScreenView _settingsScreenView;
+    private readonly BasePopupView _basePopupView;
     private readonly ApplicationExiter _applicationExit;
+    private readonly GameManager _gameManager;
     private readonly GameLauncher _gameLauncher;
-    
-    public MainMenuMediator(MainMenuView mainMenuView, ApplicationExiter applicationExit, GameLauncher gameLauncher, SettingsScreenView settingsScreenView)
+
+    public MainMenuMediator(MainMenuView mainMenuView, ApplicationExiter applicationExit, GameLauncher gameLauncher, BasePopupView basePopupView, GameManager gameManager)
     {
         _mainMenuView = mainMenuView;
-        _settingsScreenView = settingsScreenView;
+        _basePopupView = basePopupView;
+        _gameManager = gameManager;
         _applicationExit = applicationExit;
         _gameLauncher = gameLauncher;
     }
 
-     void IInitializable.Initialize()
+    void IInitializable.Initialize()
     {
+        _gameManager.StartGame();
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        _mainMenuView.StartButton.Button.AnimateOnHover(_mainMenuView.StartButton.SequenceHover,_mainMenuView.StartButton.TweenParamsHover.EaseOut,_mainMenuView.StartButton.TweenParamsHover.EaseIn);
-        _mainMenuView.StartButton.Button.AnimateOnClick(_mainMenuView.StartButton.SequenceClick,_mainMenuView.StartButton.TweenParamsHover.EaseOut,_gameLauncher.LaunchLoadingScreen);
-        
-        _mainMenuView.SettingButton.Button.AnimateOnHover(_mainMenuView.SettingButton.SequenceHover,_mainMenuView.SettingButton.TweenParamsHover.EaseOut,_mainMenuView.SettingButton.TweenParamsHover.EaseIn);
-       _mainMenuView.SettingButton.Button.AnimateOnClick(_mainMenuView.SettingButton.SequenceClick,_mainMenuView.SettingButton.TweenParamsClick.EaseOut,_settingsScreenView.Show);
-       
-        _mainMenuView.ExitButton.Button.AnimateOnHover(_mainMenuView.ExitButton.SequenceHover,_mainMenuView.ExitButton.TweenParamsHover.EaseOut,_mainMenuView.ExitButton.TweenParamsHover.EaseIn);
-        _mainMenuView.ExitButton.Button.AnimateOnClick(_mainMenuView.ExitButton.SequenceClick,_mainMenuView.ExitButton.TweenParamsHover.EaseOut,_applicationExit.ExitApp);
-        
-        _settingsScreenView.CloseButton.Button.AnimateOnHover(_settingsScreenView.CloseButton.SequenceHover,_settingsScreenView.CloseButton.TweenParamsHover.EaseOut,_settingsScreenView.CloseButton.TweenParamsHover.EaseIn);
-        _settingsScreenView.CloseButton.Button.AnimateOnClick(_settingsScreenView.CloseButton.SequenceClick,_settingsScreenView.CloseButton.TweenParamsHover.EaseOut,_settingsScreenView.Hide);
+
+        SetupButtonAnimations(_mainMenuView.StartButton, _gameLauncher.LaunchLoadingScreen);
+        SetupButtonAnimations(_mainMenuView.SettingButton, _basePopupView.Show);
+        SetupButtonAnimations(_mainMenuView.ExitButton, _applicationExit.ExitApp);
+        SetupButtonAnimations(_basePopupView.CloseButton, _basePopupView.Hide);
     }
     
+    private void SetupButtonAnimations(ButtonDefaultView buttonView, Action onClick)
+    {
+        buttonView.Button.AnimateOnHover(buttonView.SequenceHover, buttonView.TweenParamsHover.EaseOut, buttonView.TweenParamsHover.EaseIn);
+        buttonView.Button.AnimateOnClick(buttonView.SequenceClick, buttonView.TweenParamsClick.EaseOut, onClick);
+    }
 }

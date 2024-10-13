@@ -3,7 +3,7 @@ using UI.MediatorUI;
 using UI.View;
 namespace DI.SceneInstallers
 {
-    public class LoadingSceneInstaller : MonoInstaller
+    public sealed class LoadingSceneInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

@@ -23,13 +23,13 @@ public sealed class WeaponTemplateView : MonoBehaviour
 
     public void ShowNormal()
     {
-        _sequenceSelected.OnComplete(PauseSelected).Complete();
-        _sequenceNormal.OnComplete(PauseNormal).Restart();
+        _sequenceSelected.OnComplete(PauseSelected)?.Complete();
+        _sequenceNormal.OnComplete(PauseNormal)?.Restart();
     }
 
     public void ShowSelected()
     {
-        _sequenceSelected.OnComplete(PauseSelected).Restart();
+        _sequenceSelected.OnComplete(PauseSelected)?.Restart();
     }
 
     public void SetWeaponAmmoLabel(int clip, int totalAmmo, string richText) => _weaponAmmoLabel.text = $"{clip} {richText} {totalAmmo}";
@@ -63,10 +63,7 @@ public sealed class WeaponTemplateView : MonoBehaviour
     private void PauseNormal() => _sequenceNormal.Pause();
     private void PauseSelected() => _sequenceSelected.Pause();
 
-    private void OnEnable()
-    {
-        ShowNormal();
-    }
+    private void OnEnable() => ShowNormal();
     private void OnDisable()
     {
         PauseNormal();
@@ -75,8 +72,8 @@ public sealed class WeaponTemplateView : MonoBehaviour
 
     private void OnDestroy()
     {
-        _sequenceNormal.Kill();
-        _sequenceSelected.Kill();
+        _sequenceNormal?.Kill();
+        _sequenceSelected?.Kill();
     }
 }
 

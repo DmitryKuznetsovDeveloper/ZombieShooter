@@ -31,21 +31,21 @@ public sealed class HealthBarView : MonoBehaviour
     public void ShowNormal()
     {
         PauseAllSequences();
-        _tweenScaleNormal.Restart();
+        _tweenScaleNormal?.Restart();
         PlaySequence(_sequenceNormal);
     }
     
     public void ShowWarning()
     {
         PauseAllSequences();
-        _tweenScaleWarning.Restart();
+        _tweenScaleWarning?.Restart();
         PlaySequence(_sequenceWarning);
     }
     
     public void ShowDanger()
     {
         PauseAllSequences();
-        _tweenScaleDanger.Restart();
+        _tweenScaleDanger?.Restart();
         PlaySequence(_sequenceDanger);
     }
 

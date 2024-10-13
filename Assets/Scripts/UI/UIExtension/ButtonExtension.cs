@@ -15,13 +15,13 @@ namespace UI.UIExtension
             AddEventTrigger(trigger, EventTriggerType.PointerEnter,(eventData) =>
             {
                 if (button.interactable)
-                    hoverSequence.OnComplete(() => hoverSequence.Pause()).SetEase(easeOut).Restart();
+                    hoverSequence.OnComplete(() => hoverSequence.Pause().Complete()).SetEase(easeOut)?.Restart();
             });
 
             AddEventTrigger(trigger, EventTriggerType.PointerExit,(eventData) =>
             {
                 if (button.interactable)
-                    hoverSequence.OnComplete(() => hoverSequence.Pause()).SetEase(easeIn).PlayBackwards();
+                    hoverSequence.OnComplete(() => hoverSequence.Pause().Complete()).SetEase(easeIn)?.PlayBackwards();
             });
         }
 
@@ -35,10 +35,10 @@ namespace UI.UIExtension
                 {
                     clickSequence.OnComplete(() =>
                         {
-                            clickSequence.Pause();
+                            clickSequence.Pause().Complete();
                             action?.Invoke();
                         })
-                        .SetEase(easeOut).Restart();
+                        .SetEase(easeOut)?.Restart();
                 }
             });
         }
@@ -50,13 +50,13 @@ namespace UI.UIExtension
             AddEventTrigger(trigger, EventTriggerType.Select,(eventData) =>
             {
                 if (button.interactable)
-                    selectedSequence.Restart();
+                    selectedSequence.OnComplete(()=> selectedSequence.Pause().Complete())?.Restart();
             });
 
             AddEventTrigger(trigger, EventTriggerType.Deselect, (eventData) =>
             {
                 if (button.interactable)
-                    selectedSequence.PlayBackwards();
+                    selectedSequence.OnComplete(()=> selectedSequence.Pause().Complete())?.PlayBackwards();
             });
         }
 
@@ -64,7 +64,7 @@ namespace UI.UIExtension
         public static void AnimateOnDisabled(this Button button, Sequence disabledSequence)
         {
             if (!button.interactable)
-                disabledSequence.Restart();
+                disabledSequence.OnComplete((() => disabledSequence.Pause().Complete()))?.Restart();
         }
         
         // Метод для отписки от событий
@@ -79,7 +79,13 @@ namespace UI.UIExtension
             // Удаляем все подписки на события кнопки
             button.onClick.RemoveAllListeners();
         }
-
+        public static void UnsubscribeSequence(this Button button,Sequence hoverSequence = null, Sequence clickSequence = null, Sequence selectedSequence = null, Sequence disabledSequence = null)
+        { 
+            hoverSequence?.Kill();
+            clickSequence?.Kill();
+            selectedSequence?.Kill();
+            disabledSequence?.Kill();
+        }
 
         // Добавления событий в EventTrigger
         private static void AddEventTrigger(EventTrigger trigger, EventTriggerType eventType, System.Action<BaseEventData> action)

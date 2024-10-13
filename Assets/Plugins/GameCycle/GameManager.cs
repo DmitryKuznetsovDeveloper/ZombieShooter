@@ -26,6 +26,8 @@ namespace Plugins.GameCycle
 
         public void StartGame()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             if (this.State != GameState.OFF)
             {
                 return;
@@ -47,6 +49,8 @@ namespace Plugins.GameCycle
 
         public void PauseGame()
         {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             if (this.State != GameState.PLAY)
             {
                 return;
@@ -68,6 +72,8 @@ namespace Plugins.GameCycle
         
         public void ResumeGame()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             if (this.State != GameState.PAUSE)
             {
                 return;
