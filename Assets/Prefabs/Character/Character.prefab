@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHitPoints: 100
-  _health: 74
+  _health: 100
 --- !u!1 &7372942601957667995
 GameObject:
   m_ObjectHideFlags: 0

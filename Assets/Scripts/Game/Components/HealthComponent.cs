@@ -9,8 +9,8 @@ namespace Game.Components
         public event Action<int> OnTakeDamage;
         public event Action OnDeath;
         
-        [SerializeField, Min(0)] private int _maxHitPoints = 100;
-        [SerializeField, Min(0)] private int _health = 50;
+        [SerializeField, Range(0,100)] private int _maxHitPoints = 100;
+        [SerializeField, Range(0,100)] private int _health = 50;
 
         public int MaxHitPoints => _maxHitPoints;
         public int CurrentHealthPoints => _health;
@@ -29,5 +29,7 @@ namespace Game.Components
             _health = healthPoints > 0 ? Mathf.Min(_health + healthPoints, _maxHitPoints) : _health;
             OnChangeHealth?.Invoke(healthPoints);   
         }
+        private void Awake() =>
+            OnChangeHealth?.Invoke(_health);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
 using Game.Components;
@@ -11,9 +12,8 @@ namespace Game.Weapon
 {
     public abstract class BaseWeapon : MonoBehaviour
     {
+        public event Action<int,string,int> OnChangeAmmo;
         public bool IsReload => _isReload;
-        public int CurrentClip => _currentClip;
-        public int CurrentTotalAmmo => _totalAmmo;
         public WeaponType WeaponType => _weaponType;
         public WeaponConfig WeaponConfig => _weaponConfig;
         public CinemachineVirtualCamera BaseCamera => _baseCamera;
@@ -76,6 +76,7 @@ namespace Game.Weapon
             _isReload = true;
             await RechargeProcess();
             await _weaponBaseAnimations.WaitForRechargeAnimationEnd(_animator, _cancellationTokenSource.Token);
+            OnChangeAmmo?.Invoke(_currentClip,WeaponConfig.RichTextAmmo,_totalAmmo);
             _isReload = false;
         }
         protected abstract UniTask RechargeProcess();
@@ -84,6 +85,7 @@ namespace Game.Weapon
         {
             _weaponBaseAnimations.ShowShoot(_animator);
             _currentClip--;
+            OnChangeAmmo?.Invoke(_currentClip,WeaponConfig.RichTextAmmo,_totalAmmo);
             
             Vector3 rayOrigin = _barrelTransform.position;
             Vector3 rayDirection = _barrelTransform.forward; 

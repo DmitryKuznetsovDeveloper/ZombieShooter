@@ -4,7 +4,7 @@ using Zenject;
 
 namespace UI.MediatorUI
 {
-    public sealed class HealthBarMediator : IInitializable, IGameTickable, IGameFinishListener
+    public sealed class HealthBarMediator : IInitializable, IGameFinishListener
     {
         private readonly CharacterInstaller _characterInstaller;
         private readonly HealthBarView _healthBarView;
@@ -23,16 +23,10 @@ namespace UI.MediatorUI
         {
             _characterHealthComponent = _characterInstaller.GetComponent<HealthComponent>();
             _characterHealthComponent.OnChangeHealth += OnHealthChangeAnimationState;
-            _characterHealthComponent.RestoreHitPoints(_characterHealthComponent.CurrentHealthPoints);
+            _characterHealthComponent.OnChangeHealth +=  _healthBarView.SetHealthPointLabel;
+            _characterHealthComponent.OnChangeHealth +=  _healthBarView.SetHealthBarFill;
         }
-
-        public void Tick(float deltaTime)
-        {
-            int currentHealth = _characterHealthComponent.CurrentHealthPoints;
-            int maxHealth = _characterHealthComponent.MaxHitPoints;
-            _healthBarView.SetHealthPointLabel(currentHealth);
-            _healthBarView.SetHealthBarFill(currentHealth, maxHealth);
-        }
+        
         private void OnHealthChangeAnimationState(int currentHealthPoints)
         {
             // Определение текущего состояния здоровья
@@ -58,6 +52,8 @@ namespace UI.MediatorUI
         public void OnFinishGame()
         {
             _characterHealthComponent.OnChangeHealth -= OnHealthChangeAnimationState;
+            _characterHealthComponent.OnChangeHealth -=  _healthBarView.SetHealthPointLabel;
+            _characterHealthComponent.OnChangeHealth -=  _healthBarView.SetHealthBarFill;
         }
     }
 }

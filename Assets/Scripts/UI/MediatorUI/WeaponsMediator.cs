@@ -2,12 +2,11 @@
 using Game.Pool;
 using Game.Weapon;
 using Plugins.GameCycle;
-using UnityEngine;
 using Zenject;
 
 namespace UI.MediatorUI
 {
-    public sealed class WeaponsMediator : IInitializable, IGameTickable, IGameFinishListener
+    public sealed class WeaponsMediator : IInitializable, IGameFinishListener
     {
         private readonly CharacterInstaller _characterInstaller;
         private readonly WeaponsView _weaponView;
@@ -31,14 +30,18 @@ namespace UI.MediatorUI
             _weaponsPool = new ObjectPool<WeaponTemplateView>(_weaponView.WeaponViewPrefab, _baseWeapons.Length, _weaponView.Container);
             SpawnWeapon(_baseWeapons, _weaponsPool);
             _weaponSelector.OnChangeWeapon += PlayAnimationForWeapon;
+            SubscriptionAmmo(_baseWeapons);
         }
-        public void Tick(float deltaTime) => UpdateAmmoLabel();
-        private void UpdateAmmoLabel()
+        
+        private void SubscriptionAmmo(BaseWeapon[] baseWeapons)
         {
             for (int i = 0; i < _weaponViews.Count; i++)
-                _weaponViews[i].SetWeaponAmmoLabel(_baseWeapons[i].CurrentClip, 
-                    _baseWeapons[i].CurrentTotalAmmo, 
-                    _baseWeapons[i].WeaponConfig.RichTextAmmo);
+                baseWeapons[i].OnChangeAmmo += _weaponViews[i].SetWeaponAmmoLabel;
+        }
+        private void UnsubscriptionAmmo(BaseWeapon[] baseWeapons)
+        {
+            for (int i = 0; i < _weaponViews.Count; i++)
+                baseWeapons[i].OnChangeAmmo -= _weaponViews[i].SetWeaponAmmoLabel;
         }
 
         private void PlayAnimationForWeapon(BaseWeapon targetWeapon)
@@ -72,10 +75,13 @@ namespace UI.MediatorUI
                     item.ShowNormal();
                 }
                 item.SetSpriteWeapon(weapons.WeaponConfig.WeaponIcon);
-                item.SetWeaponAmmoLabel(weapons.CurrentClip, weapons.CurrentTotalAmmo, weapons.WeaponConfig.RichTextAmmo);
                 _weaponViews.Add(item);
             }
         }
-        public void OnFinishGame() => _weaponSelector.OnChangeWeapon -= PlayAnimationForWeapon;
+        public void OnFinishGame()
+        {
+            UnsubscriptionAmmo(_baseWeapons);
+            _weaponSelector.OnChangeWeapon -= PlayAnimationForWeapon;
+        }
     }
 }

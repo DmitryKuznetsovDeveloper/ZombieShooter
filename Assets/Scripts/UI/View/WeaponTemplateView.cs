@@ -32,7 +32,7 @@ public sealed class WeaponTemplateView : MonoBehaviour
         _sequenceSelected.OnComplete(PauseSelected)?.Restart();
     }
 
-    public void SetWeaponAmmoLabel(int clip, int totalAmmo, string richText) => _weaponAmmoLabel.text = $"{clip} {richText} {totalAmmo}";
+    public void SetWeaponAmmoLabel(int clip,string richText,int totalAmmo) => _weaponAmmoLabel.text = $"{clip} {richText} {totalAmmo}";
 
     public void SetSpriteWeapon(Sprite sprite) => _imageWeapon.sprite = sprite;
 

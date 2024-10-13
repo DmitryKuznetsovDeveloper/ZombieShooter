@@ -23,9 +23,9 @@ public sealed class HealthBarView : MonoBehaviour
     private Tween _tweenScaleDanger;
 
     public void SetHealthPointLabel(int healthPoint) => _healthPointLabel.text = $"{healthPoint}";
-    public void SetHealthBarFill(int currentHealth, int maxHealth)
+    public void SetHealthBarFill(int currentHealth)
     {
-        var value = (float)currentHealth / maxHealth;
+        var value = (float)currentHealth / 100;
         _healthBarFill.DOFillAmount(value, 1f).SetEase(Ease.Linear);
     }
     public void ShowNormal()

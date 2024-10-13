@@ -5,44 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a01ab5fe-466e-4f39-bc3e-2baeed4ebfca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/PauseInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/PauseInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/PauseScreenMediator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/PauseScreenMediator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/BasePopupView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/BasePopupView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/PauseScreenView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/PauseScreenView.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GameCycle/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/GameCycle/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/Character.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/BaseUI/PopupBase.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/BaseUI/PopupBase.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/HudScreen/HUDScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/HudScreen/HUDScreen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/PauseScreen/PauseScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/PauseScreen/PauseScreen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/SettingsScreen/SettingsScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UIPrefabs/SettingsScreen/SettingsScreen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelOne.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelOne.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/ObjectInstallers/CharacterInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/ObjectInstallers/CharacterInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/ProjectInstaller/GameCoreInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/ProjectInstaller/GameCoreInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/HudInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/HudInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/LoadingSceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/LoadingSceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/MainMenuSceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/MainMenuSceneInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Components/HealthComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Components/HealthComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Controllers/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Controllers/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameLauncher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Systems/InputSystems/New Controls.inputactions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Systems/InputSystems/New Controls.inputactions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Systems/InputSystems/PauseUserInputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Systems/InputSystems/PauseUserInputSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/MainMenuMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/MainMenuMediator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/BaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/BaseWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/WeaponController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/WeaponController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/HealthBarMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/HealthBarMediator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/WeaponsMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/WeaponsMediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIExtension/ButtonExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIExtension/ButtonExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/ButtonDefaultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/ButtonDefaultView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/HealthBarView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/HealthBarView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/LoadingScreenView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/LoadingScreenView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/SettingsScreenView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/SettingsScreenView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/SettingsScreenView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/SettingsScreenView.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponTemplateView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponTemplateView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +124,7 @@
       <workItem from="1728731621604" duration="7758000" />
       <workItem from="1728754233140" duration="15327000" />
       <workItem from="1728816062383" duration="6535000" />
-      <workItem from="1728823086934" duration="15056000" />
+      <workItem from="1728823086934" duration="18633000" />
     </task>
     <servers />
   </component>
