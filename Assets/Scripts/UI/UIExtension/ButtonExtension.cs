@@ -17,17 +17,13 @@ namespace UI.UIExtension
             AddOrReplaceEventTrigger(trigger, EventTriggerType.PointerEnter, (eventData) =>
             {
                 if (button.interactable)
-                {
                     hoverSequence.OnComplete(() => hoverSequence.Pause().Complete()).SetEase(easeOut).Restart();
-                }
             });
 
             AddOrReplaceEventTrigger(trigger, EventTriggerType.PointerExit, (eventData) =>
             {
                 if (button.interactable)
-                {
                     hoverSequence.OnComplete(() => hoverSequence.Pause().Complete()).SetEase(easeIn).PlayBackwards();
-                }
             });
         }
 
@@ -62,17 +58,13 @@ namespace UI.UIExtension
             AddOrReplaceEventTrigger(trigger, EventTriggerType.Select, (eventData) =>
             {
                 if (button.interactable)
-                {
                     selectedSequence.OnComplete(() => selectedSequence.Pause().Complete()).Restart();
-                }
             });
 
             AddOrReplaceEventTrigger(trigger, EventTriggerType.Deselect, (eventData) =>
             {
                 if (button.interactable)
-                {
                     selectedSequence.OnComplete(() => selectedSequence.Pause().Complete()).PlayBackwards();
-                }
             });
         }
 
@@ -82,9 +74,7 @@ namespace UI.UIExtension
             if (disabledSequence == null) throw new ArgumentNullException(nameof(disabledSequence));
 
             if (!button.interactable)
-            {
                 disabledSequence.OnComplete(() => disabledSequence.Pause().Complete()).Restart();
-            }
         }
 
         // Метод для отписки от событий
@@ -93,9 +83,7 @@ namespace UI.UIExtension
             EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
 
             if (trigger != null)
-            {
                 trigger.triggers.Clear();
-            }
 
             button.onClick.RemoveAllListeners();
         }
@@ -114,9 +102,8 @@ namespace UI.UIExtension
         {
             EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
             if (trigger == null)
-            {
                 trigger = button.gameObject.AddComponent<EventTrigger>();
-            }
+            
             return trigger;
         }
 
