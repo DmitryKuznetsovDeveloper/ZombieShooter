@@ -4,7 +4,7 @@ using Cinemachine;
 using Cysharp.Threading.Tasks;
 using Game.Components;
 using Game.Pool;
-using Unity.Collections;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -18,9 +18,9 @@ namespace Game.Weapon
         public WeaponConfig WeaponConfig => _weaponConfig;
         public CinemachineVirtualCamera BaseCamera => _baseCamera;
         
-        [ReadOnly] protected WeaponType _weaponType;
+        [SerializeField,ReadOnly] private WeaponType _weaponType;
         [SerializeField] private Transform _barrelTransform;
-        [SerializeField] protected WeaponConfig _weaponConfig;
+        [SerializeField,InlineEditor] protected WeaponConfig _weaponConfig;
         [SerializeField] protected Transform _muzzleFlashContainer;
         [SerializeField] protected Transform _bloodContainer;
         [SerializeField] protected Transform _impactContainer;

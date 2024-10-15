@@ -2,7 +2,7 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-[CreateAssetMenu(fileName = "NewWeaponConfig", menuName = "Weapon/Config")]
+[CreateAssetMenu(fileName = "WeaponConfig", menuName = "Configs/WeaponConfig")]
 public sealed class WeaponConfig : ScriptableObject
 {
     [Title("Weapon General Settings")] // Основные настройки оружия
