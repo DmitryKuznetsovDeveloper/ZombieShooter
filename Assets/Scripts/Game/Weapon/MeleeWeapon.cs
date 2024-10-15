@@ -9,7 +9,7 @@ namespace Game.Weapon
         [SerializeField] private Transform[] _meleePoints;
         [SerializeField, InlineEditor] private MeleeWeaponConfig _config;
         private readonly Collider[] _buffer = new Collider[32];
-
+        
         [Button]
         public void MeleeAttack() => AttackProcess();
 

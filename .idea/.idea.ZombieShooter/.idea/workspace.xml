@@ -5,95 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a01ab5fe-466e-4f39-bc3e-2baeed4ebfca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Data/MeleeWeaponConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Data/MeleeWeaponConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DI/ObjectInstallers/EnemyInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Animations/EnemyAnimationEventManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Animations/EnemyAnimationEventManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Attack.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Attack.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Biting.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Biting.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Death.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Death.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Hit.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Hit.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/RightAttack.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/RightAttack.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Run.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Run.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Scream.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Scream.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Zombie.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Animations/Zombie.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Limbs.physicMaterial" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/Limbs.physicMaterial.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/ZombieDoom.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/ZombieDoom.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/internal_ground_ao_texture.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/internal_ground_ao_texture.jpeg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_0_Pbr.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_0_Pbr.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_1_Pbr.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_1_Pbr.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_2_Pbr.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_2_Pbr.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_3_Pbr.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_3_Pbr.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_4_Pbr.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_4_Pbr.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_Pbr.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/obj_default_Pbr.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms_n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms_n.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms_s.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms_sss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_arms_sss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_eyes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_eyes.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_eyes_e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_eyes_e.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_eyes_n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_eyes_n.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_g.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_g.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_n.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_s.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_sss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_head_sss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_g.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_g.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_n.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_s.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_sss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_legs_sss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_g.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_g.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_n.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_s.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_sss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Zombie/textures/zombie_tier1_torso_sss.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Data/WeaponConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Data/WeaponConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/BaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/BaseWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Atack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/Atack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/MeleeWeaponConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/MeleeWeaponConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemys/Zombie_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemys/Zombie_1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TEST.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/MeleeWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/MeleeWeapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +26,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3f5bd82a14d442d9848a73363c91f22e1d000/a9/875b0baa/ActiveBuild.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Animations/Common/AnimationEventListener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/HudInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/MainMenuMediator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/WeaponsMediator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -208,7 +129,7 @@
       <workItem from="1728823086934" duration="18633000" />
       <workItem from="1728844271354" duration="736000" />
       <workItem from="1728920509234" duration="1481000" />
-      <workItem from="1729005833576" duration="2465000" />
+      <workItem from="1729005833576" duration="8353000" />
     </task>
     <servers />
   </component>

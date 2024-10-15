@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   mode: 0
-  meleeRadius: 0.2
+  meleeRadius: 0.3
   layerMask:
     serializedVersion: 2
     m_Bits: 8
