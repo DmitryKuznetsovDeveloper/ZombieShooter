@@ -13,6 +13,9 @@ namespace Game.Animations
             _animationEventListener = animationEventListener;
             _meleeWeapon = meleeWeapon;
         }
-        public void OnStartGame() => _animationEventListener.AddEvent("event_attack",_meleeWeapon.MeleeAttack);
+        public void OnStartGame()
+        {
+            _animationEventListener.AddEvent("event_attack", _meleeWeapon.MeleeAttack);
+        }
     }
 }
