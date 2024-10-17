@@ -11,8 +11,7 @@ public sealed class HudInstaller : MonoInstaller
         Container.Bind<WeaponsView>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<PauseScreenView>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<SettingsScreenView>().FromComponentInHierarchy().AsSingle().NonLazy();
-
-        Container.BindInterfacesAndSelfTo<CharacterInstaller>().FromComponentInHierarchy().AsSingle().NonLazy();
+        
         Container.BindInterfacesTo<HealthBarMediator>().AsSingle().NonLazy();
         Container.BindInterfacesTo<WeaponsMediator>().AsSingle().NonLazy();
         Container.BindInterfacesTo<PauseScreenMediator>().AsSingle().NonLazy();

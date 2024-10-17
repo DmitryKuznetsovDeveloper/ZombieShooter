@@ -23,6 +23,7 @@ namespace DI.ProjectInstaller
             Container.BindInterfacesAndSelfTo<ApplicationExiter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<GameLauncher>().AsSingle().NonLazy();
             Container.Bind<WeaponSelector>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterInstaller>().FromComponentInHierarchy().AsSingle().NonLazy();
         }
     }
 }
