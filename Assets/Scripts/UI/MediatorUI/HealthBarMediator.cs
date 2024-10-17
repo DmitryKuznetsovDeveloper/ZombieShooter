@@ -39,13 +39,13 @@ namespace UI.MediatorUI
             switch (currentHealthState)
             {
                 case HealthState.Normal:
-                    _healthBarView.ShowNormal();
+                    _healthBarView.PlayForwardAnimation(HealthBarView.HealthBarAnimationState.Normal);
                     break;
                 case HealthState.Warning:
-                    _healthBarView.ShowWarning();
+                    _healthBarView.PlayForwardAnimation(HealthBarView.HealthBarAnimationState.Warning);
                     break;
                 case HealthState.Danger:
-                    _healthBarView.ShowDanger();
+                    _healthBarView.PlayForwardAnimation(HealthBarView.HealthBarAnimationState.Danger);
                     break;
             }
         }

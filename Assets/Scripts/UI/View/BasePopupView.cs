@@ -1,80 +1,48 @@
-﻿using Code.Tween;
+﻿using System.Collections.Generic;
 using DG.Tweening;
+using Game.Data;
 using UnityEngine;
 
 namespace UI.View
 {
-    public class BasePopupView : MonoBehaviour
+    public class BasePopupView : UIElementAnimationStatesBase<BasePopupView.BasePopupState, BasePopupSettings, BasePopupConfig>
     {
         public ButtonDefaultView CloseButton => _closeButton;
 
         [SerializeField] private CanvasGroup _mainCanvasGroup;
         [SerializeField] private RectTransform _popupBase;
         [SerializeField] private ButtonDefaultView _closeButton;
-        [SerializeField] private TweenParamsOutIn _tweenParams;
 
-        private Sequence _sequenceShow;
-        private Sequence _sequenceHide;
-        private bool _isVisible;
+        public enum BasePopupState { Show, Hide }
 
-        private void Awake() => InitializePopup();
-
-        public void Show()
+        protected override void InitializeSequences()
         {
-            if (_isVisible) return; 
-            _sequenceHide?.Complete();
-            _mainCanvasGroup.interactable = true;
-            _mainCanvasGroup.blocksRaycasts = true;
-            _sequenceShow.OnComplete(PauseShow)?.Restart();
-            _isVisible = true;
+            SwitchCanvasGroupEnable(false);
+            AnimationSequences = new Dictionary<BasePopupState, Sequence>()
+            {
+                { BasePopupState.Show, CreateSequence(_config.ShowState) },
+                { BasePopupState.Hide, CreateSequence(_config.HideState) },
+            };
         }
-
-        public void Hide()
+        
+        protected override Sequence CreateSequence(BasePopupSettings stateConfig)
         {
-            if (!_isVisible) return;
-            _sequenceShow?.Complete();
-            _mainCanvasGroup.interactable = false;
-            _mainCanvasGroup.blocksRaycasts = false;
-            _sequenceHide.OnComplete(PauseHide)?.Restart();
-            _isVisible = false;
+            var sequence = DOTween.Sequence();
+            sequence.Append(_mainCanvasGroup.DOFade(stateConfig.MainFade, stateConfig.Params.Duration));
+            sequence.Join(_popupBase.DOScale(stateConfig.TargetScale, stateConfig.Params.Duration).From(stateConfig.StartScale));
+            sequence.SetRecyclable(true)
+                .SetAutoKill(false)
+                .SetUpdate(true)
+                .SetEase(stateConfig.Params.EaseOut)
+                .Pause();
+            return sequence;
         }
+        protected override BasePopupState GetDefaultState() => BasePopupState.Hide;
 
-        private void InitializePopup()
+        public void SwitchCanvasGroupEnable(bool value)
         {
-            _mainCanvasGroup.interactable = false;
-            _mainCanvasGroup.blocksRaycasts = false;
-            CreateShowSequence();
-            CreateHideSequence();
-        }
-
-        private void CreateShowSequence()
-        {
-            _sequenceShow = DOTween.Sequence();
-            _sequenceShow.Append(_mainCanvasGroup.DOFade(1f, 0).From(0));
-            _sequenceShow.Join(_popupBase.DOScale(1, _tweenParams.Duration).From(0.5f));
-            _sequenceShow.SetRecyclable(true).SetEase(_tweenParams.EaseOut).SetAutoKill(false).SetUpdate(true).Pause();
-        }
-
-        private void CreateHideSequence()
-        {
-            _sequenceHide = DOTween.Sequence();
-            _sequenceHide.Append(_mainCanvasGroup.DOFade(0f, _tweenParams.Duration));
-            _sequenceHide.Join(_popupBase.DOScale(0, _tweenParams.Duration));
-            _sequenceHide.SetRecyclable(true).SetEase(_tweenParams.EaseIn).SetAutoKill(false).SetUpdate(true).Pause();
-        }
-        private void PauseShow() => _sequenceShow.Pause();
-        private void PauseHide() => _sequenceHide.Pause();
-
-        private void OnDisable()
-        {
-            PauseShow();
-            PauseHide();
-        }
-
-        private void OnDestroy()
-        {
-            _sequenceHide?.Kill();
-            _sequenceShow?.Kill();
+            _mainCanvasGroup.interactable = value;
+            _mainCanvasGroup.blocksRaycasts = value;
         }
     }
 }

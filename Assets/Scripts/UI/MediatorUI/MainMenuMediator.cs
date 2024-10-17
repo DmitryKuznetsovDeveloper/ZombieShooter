@@ -25,19 +25,31 @@ public sealed class MainMenuMediator : IInitializable
 
     void IInitializable.Initialize()
     {
+        HidePopup();
         _gameManager.StartGame();
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
 
         SetupButtonAnimations(_mainMenuView.StartButton, _gameLauncher.LaunchLoadingScreen);
-        SetupButtonAnimations(_mainMenuView.SettingButton, _basePopupView.Show);
+        SetupButtonAnimations(_mainMenuView.SettingButton, ShowPopup);
         SetupButtonAnimations(_mainMenuView.ExitButton, _applicationExit.ExitApp);
-        SetupButtonAnimations(_basePopupView.CloseButton, _basePopupView.Hide);
+        SetupButtonAnimations(_basePopupView.CloseButton, HidePopup);
     }
     
     private void SetupButtonAnimations(ButtonDefaultView buttonView, Action onClick)
     {
         buttonView.Button.AnimateOnHover(buttonView.SequenceHover, buttonView.TweenParamsHover.EaseOut, buttonView.TweenParamsHover.EaseIn);
         buttonView.Button.AnimateOnClick(buttonView.SequenceClick, buttonView.TweenParamsClick.EaseOut, onClick);
+    }
+
+    private void ShowPopup()
+    {
+        _basePopupView.PlayForwardAnimation(BasePopupView.BasePopupState.Show);
+        _basePopupView.SwitchCanvasGroupEnable(true);
+    }
+    private void HidePopup()
+    {
+        _basePopupView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide);
+        _basePopupView.SwitchCanvasGroupEnable(false);
     }
 }

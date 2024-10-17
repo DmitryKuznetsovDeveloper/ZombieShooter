@@ -46,13 +46,13 @@ namespace UI.MediatorUI
 
         private void PlayAnimationForWeapon(BaseWeapon targetWeapon)
         {
-            _currentSelectedWeaponView.ShowNormal();
+            _currentSelectedWeaponView.PlayForwardAnimation(WeaponTemplateView.WeaponViewAnimationState.Normal);
             for (int i = 0; i < _baseWeapons.Length; i++)
             {
                 if (_baseWeapons[i] == targetWeapon)
                 {
                     var weaponView = _weaponViews[i];
-                    weaponView.ShowSelected();
+                    weaponView.PlayForwardAnimation(WeaponTemplateView.WeaponViewAnimationState.Selected);
                     _currentSelectedWeaponView = weaponView;
                     break;
                 }
@@ -64,15 +64,14 @@ namespace UI.MediatorUI
             {
                 var item = pool.GetObject();
                 var weapons = _baseWeapons[i];
-                item.InitSequence();
                 if (i == 0)
                 {
-                    item.ShowSelected();
+                    item.PlayForwardAnimation(WeaponTemplateView.WeaponViewAnimationState.Selected);
                     _currentSelectedWeaponView = item;
                 }
                 else
                 {
-                    item.ShowNormal();
+                    item.PlayForwardAnimation(WeaponTemplateView.WeaponViewAnimationState.Normal);
                 }
                 item.SetSpriteWeapon(weapons.WeaponConfig.WeaponIcon);
                 _weaponViews.Add(item);

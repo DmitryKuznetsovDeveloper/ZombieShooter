@@ -55,36 +55,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a840247b7dfbe43bd63f8944d91278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: a06de43b81fcf8d4ba66e0e759a43e0b, type: 2}
   _mainCanvasGroup: {fileID: 8719970245467219582}
   _bgMain: {fileID: 2697245542021774449}
   _bgGradient: {fileID: 5881657406335225489}
   _frameSelected: {fileID: 1456563241881792859}
-  _normalState:
-    scaleFactorWeapon: 1
-    SizeDeltaGradientFrom: {x: 200, y: 0}
-    SizeDeltaGradientTarget: {x: 200, y: 0}
-    MainFade: 0.5
-    FrameSelectedFade: 0
-    FrameSelectedColor: {r: 0.105882354, g: 1, b: 0, a: 1}
-    BgMainColor: {r: 0.22352941, g: 0.3647059, b: 0.37254903, a: 1}
-    BgGradientColor: {r: 0.41960785, g: 0.69803923, b: 0.6, a: 0}
-    TweenParamsOut:
-      Duration: 0.5
-      Delay: 0
-      EaseOut: 3
-  _selectedState:
-    scaleFactorWeapon: 1.1
-    SizeDeltaGradientFrom: {x: 200, y: 0}
-    SizeDeltaGradientTarget: {x: 200, y: 150}
-    MainFade: 1
-    FrameSelectedFade: 1
-    FrameSelectedColor: {r: 0.105882354, g: 1, b: 0, a: 1}
-    BgMainColor: {r: 0.22352941, g: 0.3647059, b: 0.37254903, a: 1}
-    BgGradientColor: {r: 0.41960785, g: 0.69803923, b: 0.6, a: 1}
-    TweenParamsOut:
-      Duration: 1
-      Delay: 0
-      EaseOut: 30
   _imageWeapon: {fileID: 2931366119769809044}
   _weaponAmmoLabel: {fileID: 1556056496991750639}
 --- !u!225 &8719970245467219582

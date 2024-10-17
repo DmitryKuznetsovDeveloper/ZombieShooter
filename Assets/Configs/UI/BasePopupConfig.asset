@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20c212c77f3498f9ca92694d6f1638d, type: 3}
+  m_Name: BasePopupConfig
+  m_EditorClassIdentifier: 
+  ShowState:
+    MainFade: 1
+    TargetScale: 1
+    StartScale: 0.5
+    Params:
+      Duration: 0.6
+      Delay: 0
+      EaseOut: 30
+  HideState:
+    MainFade: 0
+    TargetScale: 0.5
+    StartScale: 1
+    Params:
+      Duration: 0.6
+      Delay: 0
+      EaseOut: 18

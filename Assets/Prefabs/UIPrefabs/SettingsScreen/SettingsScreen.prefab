@@ -138,14 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095568ece97245cbbf9057baa9f50546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: d934d4cc14e0a5941ba5c9eaa4c96106, type: 2}
   _mainCanvasGroup: {fileID: 7299389613328836659}
   _popupBase: {fileID: 8764409026188976183}
   _closeButton: {fileID: 2504547329001340419}
-  _tweenParams:
-    Duration: 0.6
-    Delay: 0
-    EaseOut: 30
-    EaseIn: 18
   _musicSlider: {fileID: 7347173621493702052}
   _effectSlider: {fileID: 4394976094520633722}
 --- !u!1001 &8036491619594738352

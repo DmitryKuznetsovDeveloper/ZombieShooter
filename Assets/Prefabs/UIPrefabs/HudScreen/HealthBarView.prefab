@@ -411,30 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93bd9607758fc014eb1f71d8f17ed947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: b9c4d8b02734e09498817e70eae7bc2e, type: 2}
   _healthIcn: {fileID: 7186140536019116397}
   _healthBarFill: {fileID: 3194818433722503389}
   _healthPointLabel: {fileID: 7117333190342879319}
-  _configNormal:
-    HealthIcn: {r: 0.105882354, g: 1, b: 0, a: 1}
-    HealthBarFill: {r: 0.105882354, g: 1, b: 0, a: 1}
-    scaleFactor: 1
-    TweenParamsOut:
-      Duration: 1
-      Delay: 0
-      EaseOut: 2
-  _configWarning:
-    HealthIcn: {r: 1, g: 0.90588236, b: 0, a: 1}
-    HealthBarFill: {r: 1, g: 0.90588236, b: 0, a: 1}
-    scaleFactor: 1.1
-    TweenParamsOut:
-      Duration: 1
-      Delay: 0
-      EaseOut: 4
-  _configDanger:
-    HealthIcn: {r: 0.9254902, g: 0.25882354, b: 0.18039216, a: 1}
-    HealthBarFill: {r: 0.9254902, g: 0.25882354, b: 0.18039216, a: 1}
-    scaleFactor: 1.2
-    TweenParamsOut:
-      Duration: 0.5
-      Delay: 0
-      EaseOut: 16

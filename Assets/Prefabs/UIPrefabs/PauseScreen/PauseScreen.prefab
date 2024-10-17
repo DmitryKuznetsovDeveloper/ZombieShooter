@@ -653,14 +653,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c695843ffe0455b8d47f07353eb588f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: d934d4cc14e0a5941ba5c9eaa4c96106, type: 2}
   _mainCanvasGroup: {fileID: 3770549623355905531}
   _popupBase: {fileID: 8326276728906926087}
   _closeButton: {fileID: 5763879925749963231}
-  _tweenParams:
-    Duration: 0.6
-    Delay: 0
-    EaseOut: 30
-    EaseIn: 18
   _resumeGame: {fileID: 6706243765159595157}
   _settingsGame: {fileID: 7301698751002147835}
   _exitGame: {fileID: 2030253202990883359}

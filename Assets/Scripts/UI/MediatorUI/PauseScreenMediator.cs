@@ -12,13 +12,13 @@ namespace UI.MediatorUI
         private readonly PauseScreenView _pauseScreenView;
         private readonly GameManager _gameManager;
         private readonly ApplicationExiter _applicationExiter;
-        private readonly SettingsScreenView _settingsScreen;
+        private readonly SettingsScreenView _settingsScreenView;
 
-        public PauseScreenMediator(PauseScreenView pauseScreenView, GameManager gameManager, SettingsScreenView settingsScreen, ApplicationExiter applicationExiter)
+        public PauseScreenMediator(PauseScreenView pauseScreenView, GameManager gameManager, SettingsScreenView settingsScreenView, ApplicationExiter applicationExiter)
         {
             _pauseScreenView = pauseScreenView;
             _gameManager = gameManager;
-            _settingsScreen = settingsScreen;
+            _settingsScreenView = settingsScreenView;
             _applicationExiter = applicationExiter;
         }
         
@@ -28,7 +28,8 @@ namespace UI.MediatorUI
             SetupButtonAnimations(_pauseScreenView.SettingsGame, ShowSettingScreen);
             SetupButtonAnimations(_pauseScreenView.ExitGame, _applicationExiter.ExitApp);
             SetupButtonAnimations(_pauseScreenView.CloseButton, _gameManager.ResumeGame);
-            SetupButtonAnimations(_settingsScreen.CloseButton, HideSettingScreen);
+            SetupButtonAnimations(_settingsScreenView.CloseButton, HideSettingScreen);
+            OnResumeGame();
         }
 
         private void SetupButtonAnimations(ButtonDefaultView buttonView, Action onClick)
@@ -37,24 +38,34 @@ namespace UI.MediatorUI
             buttonView.Button.AnimateOnClick(buttonView.SequenceClick, buttonView.TweenParamsClick.EaseOut, onClick);
         }
 
-        public void OnPauseGame() => _pauseScreenView.Show();
-        
+        public void OnPauseGame()
+        {
+            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Show);
+            _pauseScreenView.SwitchCanvasGroupEnable(true);
+        }
+
         public void OnResumeGame()
         {
-            _pauseScreenView.Hide();
-            _settingsScreen.Hide();
+            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide);
+            _pauseScreenView.SwitchCanvasGroupEnable(false);
+            _settingsScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide);
+            _settingsScreenView.SwitchCanvasGroupEnable(false);
         }
 
         private void ShowSettingScreen()
         { 
-            _pauseScreenView.Hide(); 
-            _settingsScreen.Show();
+            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide); 
+            _pauseScreenView.SwitchCanvasGroupEnable(false);
+            _settingsScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Show);
+            _settingsScreenView.SwitchCanvasGroupEnable(true);
         }
 
         private void HideSettingScreen()
         {
-            _settingsScreen.Hide();
-            _pauseScreenView.Show();
+            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Show);
+            _pauseScreenView.SwitchCanvasGroupEnable(true);
+            _settingsScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide);
+            _settingsScreenView.SwitchCanvasGroupEnable(false);
         }
     }
 }
