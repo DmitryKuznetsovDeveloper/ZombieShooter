@@ -1,5 +1,5 @@
 using Plugins.GameCycle;
-namespace Game.Systems
+namespace Game.Components
 {
     public sealed class GameTimer : IGameTickable
     {

@@ -6,7 +6,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-public sealed class WeaponTemplateView : UIElementAnimationStatesBase<WeaponTemplateView.WeaponViewAnimationState,WeaponInfoBackgroundSettings,WeaponInfoBackgroundConfig>
+public sealed class WeaponTemplateView : AnimationStatesBaseUIElement<WeaponTemplateView.WeaponViewAnimationState,WeaponInfoBackgroundSettings,WeaponInfoBackgroundConfig>
 {
     [SerializeField] private CanvasGroup _mainCanvasGroup;
     [SerializeField] private Image _bgMain;

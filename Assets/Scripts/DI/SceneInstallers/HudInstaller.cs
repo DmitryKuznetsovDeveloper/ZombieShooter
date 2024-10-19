@@ -1,19 +1,25 @@
 using Plugins.Zenject.Source.Install;
+using UI;
 using UI.MediatorUI;
 using UI.View;
 
-public sealed class HudInstaller : MonoInstaller
+namespace DI.SceneInstallers
 {
-    public override void InstallBindings()
+    public sealed class HudInstaller : MonoInstaller
     {
-        //View
-        Container.Bind<HealthBarView>().FromComponentInHierarchy().AsSingle().NonLazy();
-        Container.Bind<WeaponsView>().FromComponentInHierarchy().AsSingle().NonLazy();
-        Container.Bind<PauseScreenView>().FromComponentInHierarchy().AsSingle().NonLazy();
-        Container.Bind<SettingsScreenView>().FromComponentInHierarchy().AsSingle().NonLazy();
+        public override void InstallBindings()
+        {
+            //View
+            Container.Bind<HealthBarView>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.Bind<WeaponInventoryView>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.Bind<PauseScreenView>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.Bind<SettingsScreenView>().FromComponentInHierarchy().AsSingle().NonLazy();
         
-        Container.BindInterfacesTo<HealthBarMediator>().AsSingle().NonLazy();
-        Container.BindInterfacesTo<WeaponsMediator>().AsSingle().NonLazy();
-        Container.BindInterfacesTo<PauseScreenMediator>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<HealthBarMediator>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<WeaponsMediator>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<PauseScreenMediator>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<PopupManager>().AsSingle().NonLazy();
+        }
     }
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83cd60f392945ec99fc6b6c401818e7, type: 3}
   m_Name: CharacterMovementConfig
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  runSpeed: 6
+  moveSpeed: 8
+  runSpeed: 12
   staminaRecoveryTime: 5
   staminaRecoveryDelayTime: 20
   jumpForce: 4

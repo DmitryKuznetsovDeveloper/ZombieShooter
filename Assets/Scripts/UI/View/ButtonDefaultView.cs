@@ -1,6 +1,6 @@
-using Code.Tween;
 using DG.Tweening;
 using TMPro;
+using UI.ParamsTween;
 using UI.UIExtension;
 using UnityEngine;
 using UnityEngine.UI;

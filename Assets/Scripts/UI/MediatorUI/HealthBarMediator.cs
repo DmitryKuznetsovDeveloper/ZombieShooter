@@ -1,27 +1,30 @@
-﻿using Game.Components;
+﻿using DI.ObjectInstallers;
+using Game.Components;
 using Plugins.GameCycle;
+using UI.View;
+using UnityEngine;
 using Zenject;
 
 namespace UI.MediatorUI
 {
     public sealed class HealthBarMediator : IInitializable, IGameFinishListener
     {
-        private readonly CharacterInstaller _characterInstaller;
+        private readonly CharacterController _character;
         private readonly HealthBarView _healthBarView;
 
         private HealthComponent _characterHealthComponent;
         private enum HealthState { Normal, Warning, Danger }
         private HealthState _previousHealthState;
 
-        public HealthBarMediator(CharacterInstaller characterInstaller, HealthBarView healthBarView)
+        public HealthBarMediator(CharacterController character, HealthBarView healthBarView)
         {
-            _characterInstaller = characterInstaller;
+            _character = character;
             _healthBarView = healthBarView;
       
         }
         void IInitializable.Initialize()
         {
-            _characterHealthComponent = _characterInstaller.GetComponent<HealthComponent>();
+            _characterHealthComponent = _character.GetComponent<HealthComponent>();
             _characterHealthComponent.OnChangeHealth += OnHealthChangeAnimationState;
             _characterHealthComponent.OnChangeHealth +=  _healthBarView.SetHealthPointLabel;
             _characterHealthComponent.OnChangeHealth +=  _healthBarView.SetHealthBarFill;
@@ -39,13 +42,13 @@ namespace UI.MediatorUI
             switch (currentHealthState)
             {
                 case HealthState.Normal:
-                    _healthBarView.PlayForwardAnimation(HealthBarView.HealthBarAnimationState.Normal);
+                    _healthBarView.PlayAnimation(HealthBarView.HealthBarAnimationState.Normal);
                     break;
                 case HealthState.Warning:
-                    _healthBarView.PlayForwardAnimation(HealthBarView.HealthBarAnimationState.Warning);
+                    _healthBarView.PlayAnimation(HealthBarView.HealthBarAnimationState.Warning);
                     break;
                 case HealthState.Danger:
-                    _healthBarView.PlayForwardAnimation(HealthBarView.HealthBarAnimationState.Danger);
+                    _healthBarView.PlayAnimation(HealthBarView.HealthBarAnimationState.Danger);
                     break;
             }
         }

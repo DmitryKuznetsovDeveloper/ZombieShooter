@@ -2,6 +2,7 @@
 using System.Threading;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
+using Game.Animations;
 using Game.Components;
 using Game.Pool;
 using Sirenix.OdinInspector;
@@ -100,7 +101,7 @@ namespace Game.Weapon
         protected virtual void HandleHit(RaycastHit hit)
         {
 
-            if (hit.transform.TryGetComponent(out HealthComponent healthComponent))
+            if (hit.transform.root.TryGetComponent(out HealthComponent healthComponent))
             {
                 healthComponent.TakeDamage(_weaponConfig.Damage);
                 PlayEffectHit(_bloodEffectPool, hit);

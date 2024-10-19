@@ -13,15 +13,17 @@ namespace UI.MediatorUI
         private readonly GameManager _gameManager;
         private readonly ApplicationExiter _applicationExiter;
         private readonly SettingsScreenView _settingsScreenView;
+        private readonly PopupManager _popupManager;
 
-        public PauseScreenMediator(PauseScreenView pauseScreenView, GameManager gameManager, SettingsScreenView settingsScreenView, ApplicationExiter applicationExiter)
+        public PauseScreenMediator(PauseScreenView pauseScreenView, GameManager gameManager, SettingsScreenView settingsScreenView, ApplicationExiter applicationExiter, PopupManager popupManager)
         {
             _pauseScreenView = pauseScreenView;
             _gameManager = gameManager;
             _settingsScreenView = settingsScreenView;
             _applicationExiter = applicationExiter;
+            _popupManager = popupManager;
         }
-        
+
         public void Initialize()
         {
             SetupButtonAnimations(_pauseScreenView.ResumeButton, _gameManager.ResumeGame);
@@ -38,34 +40,12 @@ namespace UI.MediatorUI
             buttonView.Button.AnimateOnClick(buttonView.SequenceClick, buttonView.TweenParamsClick.EaseOut, onClick);
         }
 
-        public void OnPauseGame()
-        {
-            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Show);
-            _pauseScreenView.SwitchCanvasGroupEnable(true);
-        }
+        public void OnPauseGame() => _popupManager.ShowPopup(_pauseScreenView);
 
-        public void OnResumeGame()
-        {
-            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide);
-            _pauseScreenView.SwitchCanvasGroupEnable(false);
-            _settingsScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide);
-            _settingsScreenView.SwitchCanvasGroupEnable(false);
-        }
+        public void OnResumeGame() => _popupManager.CloseCurrentPopup();
 
-        private void ShowSettingScreen()
-        { 
-            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide); 
-            _pauseScreenView.SwitchCanvasGroupEnable(false);
-            _settingsScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Show);
-            _settingsScreenView.SwitchCanvasGroupEnable(true);
-        }
+        private void ShowSettingScreen() => _popupManager.ShowPopup(_settingsScreenView);
 
-        private void HideSettingScreen()
-        {
-            _pauseScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Show);
-            _pauseScreenView.SwitchCanvasGroupEnable(true);
-            _settingsScreenView.PlayForwardAnimation(BasePopupView.BasePopupState.Hide);
-            _settingsScreenView.SwitchCanvasGroupEnable(false);
-        }
+        private void HideSettingScreen() => _popupManager.CloseCurrentPopup();
     }
 }

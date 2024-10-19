@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public abstract class UIElementAnimationStatesBase<TState, TSettings,TConfig> : MonoBehaviour 
+    public abstract class AnimationStatesBaseUIElement<TState, TSettings,TConfig> : MonoBehaviour 
         where TState : Enum
         where TConfig : ScriptableObject
         where TSettings : class
@@ -41,7 +41,7 @@ namespace UI
                 sequences?.Kill();
         }
 
-        public virtual void PlayForwardAnimation(TState state)
+        public virtual void PlayAnimation(TState state)
         {
             if (_currentState.Equals(state) && !_isFirstRun) return;
 

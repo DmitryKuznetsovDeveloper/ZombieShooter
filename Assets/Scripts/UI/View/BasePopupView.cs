@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI.View
 {
-    public class BasePopupView : UIElementAnimationStatesBase<BasePopupView.BasePopupState, BasePopupSettings, BasePopupConfig>
+    public class BasePopupView : AnimationStatesBaseUIElement<BasePopupView.BasePopupState, BasePopupSettings, BasePopupConfig>, IPopup
     {
         public ButtonDefaultView CloseButton => _closeButton;
 
@@ -17,12 +17,12 @@ namespace UI.View
 
         protected override void InitializeSequences()
         {
-            SwitchCanvasGroupEnable(false);
             AnimationSequences = new Dictionary<BasePopupState, Sequence>()
             {
                 { BasePopupState.Show, CreateSequence(_config.ShowState) },
                 { BasePopupState.Hide, CreateSequence(_config.HideState) },
             };
+            Hide();
         }
         
         protected override Sequence CreateSequence(BasePopupSettings stateConfig)
@@ -39,10 +39,21 @@ namespace UI.View
         }
         protected override BasePopupState GetDefaultState() => BasePopupState.Hide;
 
-        public void SwitchCanvasGroupEnable(bool value)
+        public void Show()
         {
-            _mainCanvasGroup.interactable = value;
-            _mainCanvasGroup.blocksRaycasts = value;
+            SwitchCanvasGroupEnable(true);
+            PlayAnimation(BasePopupState.Show);
         }
+        public void Hide()
+        {
+            SwitchCanvasGroupEnable(false);
+            PlayAnimation(BasePopupState.Hide);
+        }
+        private void SwitchCanvasGroupEnable(bool enable)
+        {
+            _mainCanvasGroup.interactable = enable;
+            _mainCanvasGroup.blocksRaycasts = enable;
+        }
+
     }
 }

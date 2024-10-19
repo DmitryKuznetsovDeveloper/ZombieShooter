@@ -1,5 +1,5 @@
 ﻿using System;
-using Code.Tween;
+using UI.ParamsTween;
 using UnityEngine;
 namespace Game.Data
 {

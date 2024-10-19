@@ -1,4 +1,5 @@
 ﻿using Plugins.Zenject.Source.Install;
+using UI.MediatorUI;
 using UI.View;
 namespace DI.SceneInstallers
 {
@@ -8,7 +9,7 @@ namespace DI.SceneInstallers
         {
             //View
             Container.Bind<MainMenuView>().FromComponentInHierarchy().AsSingle().NonLazy();
-            Container.Bind<BasePopupView>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.Bind<SettingsScreenView>().FromComponentInHierarchy().AsSingle().NonLazy();
             
             //Mediator
             Container.BindInterfacesTo<MainMenuMediator>().AsSingle().NonLazy();

@@ -1,7 +1,6 @@
 ﻿using System;
 using DG.Tweening;
-
-namespace Code.Tween
+namespace UI.ParamsTween
 {
     [Serializable]
     public class TweenParamsOutIn

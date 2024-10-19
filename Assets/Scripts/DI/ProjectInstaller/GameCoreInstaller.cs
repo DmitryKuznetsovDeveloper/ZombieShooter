@@ -1,3 +1,4 @@
+using DI.ObjectInstallers;
 using Game;
 using Game.Weapon;
 using Plugins.GameCycle;
@@ -19,11 +20,12 @@ namespace DI.ProjectInstaller
         private void BindInstances()
         {
             Container.Bind<GameManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<Camera>().FromComponentsInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ApplicationExiter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<GameLauncher>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<Camera>().FromComponentsInHierarchy().AsSingle().NonLazy();
             Container.Bind<WeaponSelector>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<CharacterInstaller>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterController>().FromComponentInHierarchy().AsSingle().NonLazy();
         }
     }
 }

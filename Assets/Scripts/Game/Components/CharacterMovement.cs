@@ -1,7 +1,6 @@
 ﻿using Game.Data;
 using UnityEngine;
-
-namespace Game.Controllers
+namespace Game.Components
 {
     public sealed class CharacterMovement
     {
