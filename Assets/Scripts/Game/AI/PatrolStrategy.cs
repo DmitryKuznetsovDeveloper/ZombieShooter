@@ -1,7 +1,6 @@
 ﻿using Game.Data;
 using UnityEngine;
 using UnityEngine.AI;
-
 namespace Game.AI
 {
     public sealed class PatrolStrategy : IEnemyStrategy
@@ -44,7 +43,6 @@ namespace Game.AI
             }
         }
 
-        // Генерируем новую патрульную точку, пока не найдем валидную на NavMesh
         private Vector3 GetNextValidPatrolPoint(NavMeshAgent navMeshAgent)
         {
             var result = navMeshAgent.transform.position;
@@ -61,11 +59,11 @@ namespace Game.AI
                 }
 
                 attempts++;
-            } while (attempts < 10); // Ограничиваем количество попыток на случай отсутствия валидных точек
+            } while (attempts < 10);
 
             return result;
         }
-        
+
         private bool HasReachedDestination(float arrivalDistance, NavMeshAgent agent) => 
             !agent.pathPending && agent.remainingDistance <= arrivalDistance;
     }

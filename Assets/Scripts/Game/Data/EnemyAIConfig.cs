@@ -19,8 +19,11 @@ namespace Game.Data
         public float AttackCooldown = 1f;
 
         [Header("Animator Parameters")]
-        public string SpeedParameter = "Speed";
-        public string AtackParameter = "Attack";
+        public readonly string SpeedParameter = "Speed";
+        public readonly string AttackLayer = "Attack Layer";
+        public readonly string AttackNameOne = "Attack_1";
+        public readonly string AttackNameTwo = "Attack_2";
+        public readonly string AAttackNameThree = "Attack_3";
     }
 }
 

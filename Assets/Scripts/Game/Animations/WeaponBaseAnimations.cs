@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
+using Game.Animations.Common;
 using UnityEngine;
 namespace Game.Animations
 {
@@ -24,12 +25,9 @@ namespace Game.Animations
             if (_weaponReloadIndex == -1) return;
 
             // Ожидаем окончания анимации на указанном слое
-            await UniTask.WaitUntil(() => !IsAnimationPlaying(animator, _weaponReloadIndex, RechargeStart), cancellationToken: cancellationToken);
-            await UniTask.WaitUntil(() => !IsAnimationPlaying(animator, _weaponReloadIndex, RechargeBase), cancellationToken: cancellationToken);
-            await UniTask.WaitUntil(() => !IsAnimationPlaying(animator, _weaponReloadIndex, RechargeEnd), cancellationToken: cancellationToken);
+            await UniTask.WaitUntil(() => !animator.IsAnimationPlaying( _weaponReloadIndex, RechargeStart), cancellationToken: cancellationToken);
+            await UniTask.WaitUntil(() => !animator.IsAnimationPlaying( _weaponReloadIndex, RechargeBase), cancellationToken: cancellationToken);
+            await UniTask.WaitUntil(() => !animator.IsAnimationPlaying( _weaponReloadIndex, RechargeEnd), cancellationToken: cancellationToken);
         }
-
-        private bool IsAnimationPlaying(Animator animator, int layerIndex, string animationName) =>
-            animator.GetCurrentAnimatorStateInfo(layerIndex).IsName(animationName);
     }
 }

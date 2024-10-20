@@ -25,6 +25,7 @@ namespace DI.ObjectInstallers
             //Components
             Container.Bind<MeleeWeapon>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<HealthComponent>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<TokenBase>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesTo<RagdollController>().AsSingle().NonLazy();
             
             //AI
