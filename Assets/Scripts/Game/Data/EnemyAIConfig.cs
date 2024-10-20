@@ -5,9 +5,10 @@ namespace Game.Data
     public class EnemyAIConfig : ScriptableObject
     {
         [Header("Movement Settings")]
-        public float PatrolSpeed = 0.6f;
-        public float IdleSpeed = 0.3f;
+        public float IdleSpeed;
+        public float PatrolSpeed = 0.5f;
         public float ChaseSpeed = 1f;
+        public float SpeedChangeSpeed = 1;
         public float ArrivalDistance = 0.5f;
         public float PatrolRadius = 10f;
         public float WaitTimeBeforeNextPoint = 2;
@@ -20,7 +21,6 @@ namespace Game.Data
         [Header("Animator Parameters")]
         public string SpeedParameter = "Speed";
         public string AtackParameter = "Attack";
-        public float SpeedChangeSpeed = 1;
     }
 }
 

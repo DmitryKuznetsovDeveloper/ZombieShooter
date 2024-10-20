@@ -1,56 +1,72 @@
 ﻿using Game.Data;
 using UnityEngine;
 using UnityEngine.AI;
+
 namespace Game.AI
 {
     public sealed class PatrolStrategy : IEnemyStrategy
     {
-        private readonly NavMeshAgent _navMeshAgent;
         private readonly EnemyAIConfig _config;
         private Vector3 _targetPatrolPoint;
         private float _waitTime;
+        private bool _isWaiting;
 
-        public PatrolStrategy(NavMeshAgent navMeshAgent, EnemyAIConfig config)
+        public PatrolStrategy(EnemyAIConfig config)
         {
-            _navMeshAgent = navMeshAgent;
             _config = config;
-            _targetPatrolPoint = GetNextPatrolPoint();
             _waitTime = _config.WaitTimeBeforeNextPoint;
         }
 
         public void Execute(EnemyAIController context)
         {
-            if (HasReachedDestination(_config.ArrivalDistance))
+            if (HasReachedDestination(_config.ArrivalDistance, context.NavMeshAgent))
             {
+                if (!_isWaiting)
+                {
+                    _isWaiting = true;
+                    _waitTime = _config.WaitTimeBeforeNextPoint;
+                    context.UpdateAnimatorSpeed(_config.IdleSpeed, _config.SpeedChangeSpeed);
+                }
+
                 _waitTime -= Time.deltaTime;
+
                 if (_waitTime <= 0)
                 {
-                    _targetPatrolPoint = GetNextPatrolPoint();
-                    _waitTime = _config.WaitTimeBeforeNextPoint;
+                    _isWaiting = false;
+                    _targetPatrolPoint = GetNextValidPatrolPoint(context.NavMeshAgent);
+                    context.NavMeshAgent.SetDestination(_targetPatrolPoint);
                 }
             }
             else
             {
-                MoveToPoint(_targetPatrolPoint, _config.PatrolSpeed);
+                if (!_isWaiting)
+                    context.UpdateAnimatorSpeed(_config.PatrolSpeed, _config.SpeedChangeSpeed);
             }
         }
 
-        private Vector3 GetNextPatrolPoint()
+        // Генерируем новую патрульную точку, пока не найдем валидную на NavMesh
+        private Vector3 GetNextValidPatrolPoint(NavMeshAgent navMeshAgent)
         {
-            Vector3 randomDirection = Random.insideUnitSphere * _config.PatrolRadius;
-            randomDirection += _navMeshAgent.transform.position;
+            var result = navMeshAgent.transform.position;
+            int attempts = 0;
+            do
+            {
+                Vector3 randomDirection = Random.insideUnitSphere * _config.PatrolRadius;
+                randomDirection += navMeshAgent.transform.position;
 
-            NavMesh.SamplePosition(randomDirection, out var hit, _config.PatrolRadius, 1);
-            return hit.position;
+                if (NavMesh.SamplePosition(randomDirection, out var hit, _config.PatrolRadius, NavMesh.AllAreas))
+                {
+                    result = hit.position;
+                    break;
+                }
+
+                attempts++;
+            } while (attempts < 10); // Ограничиваем количество попыток на случай отсутствия валидных точек
+
+            return result;
         }
-
-        private void MoveToPoint(Vector3 destination, float speed)
-        {
-            _navMeshAgent.speed = speed;
-            _navMeshAgent.SetDestination(destination);
-        }
-
-        private bool HasReachedDestination(float arrivalDistance) => 
-            !_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= arrivalDistance;
+        
+        private bool HasReachedDestination(float arrivalDistance, NavMeshAgent agent) => 
+            !agent.pathPending && agent.remainingDistance <= arrivalDistance;
     }
 }

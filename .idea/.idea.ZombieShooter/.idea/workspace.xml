@@ -5,80 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a01ab5fe-466e-4f39-bc3e-2baeed4ebfca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AttackStrategy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AttackStrategy.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/ChaseStrategy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/ChaseStrategy.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/EnemyAIController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/EnemyAIController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/IEnemyStrategy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/IEnemyStrategy.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/PatrolStrategy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/PatrolStrategy.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Components/RagdollController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Components/RagdollController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PopupManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PopupManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/IPopup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/IPopup.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponInventoryView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Tools/Editor/SceneSwitcherWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Tools/Editor/SceneSwitcherWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tools/Editor/ConfigSwitcherWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tools/Editor/ConfigSwitcherWindow.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Atack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/Atack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Biting.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/Biting.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/BitingLoop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/BitingLoop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Crawl.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/Crawl.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Run.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/Run.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/RunningCrawl.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/RunningCrawl.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Walk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/Walk.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Zombie_1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Monsters/Zombie_1.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Character/CharacterMovementConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Character/CharacterMovementConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Weapon/MeleeWeaponConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Weapon/MeleeWeaponConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Atack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Atack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Biting.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Biting.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/BitingLoop.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/BitingLoop.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Crawl.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Crawl.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/IDLE.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/IDLE.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Run.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Run.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/RunningCrawl.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/RunningCrawl.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Walk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Walk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Zombie Scream.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Zombie Scream.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Zombie_1.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Monsters/Zombie_1.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/AI/EnemyAIConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/AI/EnemyAIConfig.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemys/Zombie_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemys/Zombie_1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelOne.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelOne.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelOne/NavMesh-AI.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelOne/NavMesh-AI.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/ObjectInstallers/CharacterInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/ObjectInstallers/CharacterInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/ObjectInstallers/EnemyInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/ObjectInstallers/EnemyInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/ProjectInstaller/GameCoreInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/ProjectInstaller/GameCoreInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/HudInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/HudInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/MainMenuSceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DI/SceneInstallers/MainMenuSceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIAttackState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIAttackState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIOnAnimatorMove.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIOnAnimatorMove.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIPatrolState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIPatrolState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AIState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Animations/Common/AIAnimatorSync.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Animations/Common/AIAnimatorSync.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Animations/WeaponBaseAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Animations/WeaponBaseAnimations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Components/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Components/CharacterMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Components/GameTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Components/GameTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Components/HealthComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Components/HealthComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Controllers/CharacterMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Controllers/CharacterMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Data/BasePopupConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Data/BasePopupConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelOne/NavMesh-AI 3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelOne/NavMesh-AI 3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AttackStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/AttackStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/ChaseStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/ChaseStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/EnemyAIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/EnemyAIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AI/PatrolStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AI/PatrolStrategy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Data/EnemyAIConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Data/EnemyAIConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Data/HealthBarConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Data/HealthBarConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Data/WeaponInfoBackgroundConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Data/WeaponInfoBackgroundConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/BaseWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Weapon/BaseWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/HealthBarMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/HealthBarMediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/MainMenuMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/MainMenuMediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/PauseScreenMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/PauseScreenMediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/WeaponsMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MediatorUI/WeaponsMediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ParamsTween/TweenParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ParamsTween/TweenParams.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIElementAnimationStatesBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AnimationStatesBaseUIElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIElementAnimationStatesBase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AnimationStatesBaseUIElement.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/BasePopupView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/BasePopupView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/ButtonDefaultView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/ButtonDefaultView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/HealthBarView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/HealthBarView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/LoadingScreenView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/LoadingScreenView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponTemplateView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponTemplateView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponsView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponsView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/View/WeaponInventoryView.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +156,7 @@
       <workItem from="1729005833576" duration="8353000" />
       <workItem from="1729174648928" duration="12029000" />
       <workItem from="1729329358539" duration="2947000" />
-      <workItem from="1729333184075" duration="20852000" />
+      <workItem from="1729333184075" duration="30941000" />
     </task>
     <servers />
   </component>

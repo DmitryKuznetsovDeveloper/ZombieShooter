@@ -6,6 +6,7 @@ namespace Game.AI
 {
     public sealed class EnemyAIController : IGameTickable
     {
+        public NavMeshAgent NavMeshAgent => _navMeshAgent;
         private IEnemyStrategy _currentStrategy;
         private readonly NavMeshAgent _navMeshAgent;
         private readonly Animator _animator;
@@ -15,6 +16,7 @@ namespace Game.AI
         private readonly IEnemyStrategy _patrolStrategy;
         private readonly IEnemyStrategy _chaseStrategy;
         private readonly IEnemyStrategy _attackStrategy;
+        private float _currentSpeed;
 
         public EnemyAIController(NavMeshAgent navMeshAgent, Animator animator, CharacterController characterController, EnemyAIConfig config)
         {
@@ -24,8 +26,8 @@ namespace Game.AI
             _config = config;
 
             // Инициализация всех стратегий
-            _patrolStrategy = new PatrolStrategy(_navMeshAgent, _config);
-            _chaseStrategy = new ChaseStrategy(_navMeshAgent, _config);
+            _patrolStrategy = new PatrolStrategy(_config);
+            _chaseStrategy = new ChaseStrategy(_config);
             _attackStrategy = new AttackStrategy(_config);
             SetStrategy(_patrolStrategy);
         }
@@ -33,23 +35,12 @@ namespace Game.AI
         public void Tick(float deltaTime)
         {
             if (IsPlayerInRange(_config.DetectionRange) && !IsPlayerInAttackRange(_config.AttackRange))
-            {
-                _navMeshAgent.isStopped = false;
-                _navMeshAgent.SetDestination(_playerTransform.position);
-                _animator.SetFloat(_config.SpeedParameter, _config.ChaseSpeed);
                 SetStrategy(_chaseStrategy);
-            }
+
             else if (IsPlayerInAttackRange(_config.AttackRange))
-            {
-                _navMeshAgent.ResetPath();
-                _navMeshAgent.isStopped = true; 
-                _animator.SetFloat(_config.SpeedParameter, _config.IdleSpeed);
                 SetStrategy(_attackStrategy);
-            }
             else
             {
-                _navMeshAgent.isStopped = false;
-                _animator.SetFloat(_config.SpeedParameter, _config.PatrolSpeed);
                 SetStrategy(_patrolStrategy); 
             }
         
@@ -64,6 +55,17 @@ namespace Game.AI
     
         public Vector3 GetPlayerPosition() => _playerTransform.position;
 
-        public void TriggerAttack() => _animator.SetTrigger(_config.AtackParameter);
+        public void AnimationAttack(int value) => _animator.SetInteger(_config.AtackParameter, value);
+
+        public void UpdateAnimatorSpeed(float targetSpeed, float speedChangeSpeed = 0)
+        {
+            _currentSpeed = Mathf.MoveTowards(_currentSpeed, targetSpeed, speedChangeSpeed * Time.deltaTime);
+            _animator.SetFloat(_config.SpeedParameter, _currentSpeed);
+        }
+        public bool HasEndedAnimationAttack()
+        {
+            AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(1);
+            return stateInfo.IsName("Attack") || stateInfo.IsName("Attack_2") || stateInfo.IsName("Attack_3") && stateInfo.normalizedTime >= 1.0f;
+        }
     }
 }

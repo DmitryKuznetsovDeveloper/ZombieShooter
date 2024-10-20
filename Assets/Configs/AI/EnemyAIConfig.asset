@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6d5ec95b714640aa0fef3682513d7d, type: 3}
   m_Name: EnemyAIConfig
   m_EditorClassIdentifier: 
-  PatrolSpeed: 0.6
-  IdleSpeed: 0.3
+  IdleSpeed: 0
+  PatrolSpeed: 0.5
   ChaseSpeed: 1
+  SpeedChangeSpeed: 0.4
   ArrivalDistance: 0.4
   PatrolRadius: 10
   WaitTimeBeforeNextPoint: 2
   DetectionRange: 12
   AttackRange: 2
-  AttackCooldown: 0.5
+  AttackCooldown: 1
   SpeedParameter: Speed
   AtackParameter: Attack
-  SpeedChangeSpeed: 0.2
